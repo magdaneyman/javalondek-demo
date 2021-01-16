@@ -1,0 +1,8 @@
+# comment
+# use / after directory
+target/
+.idea/
+
+# ignore files
+javalondek-demo.iml
+

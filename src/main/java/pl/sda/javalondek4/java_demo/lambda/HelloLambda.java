@@ -20,14 +20,43 @@ public class HelloLambda {
         //anonymousRunner.go();
 
         // call handleRunner using anonymous class
-        handleRunner(new Runner()
-        {@Override public void go() { System.out.println("inside method call"); }
+        handleRunner(new Runner() {
+            @Override
+            public void go() {
+                System.out.println("inside method call");
+            }
 
 
         });
+        //using lambda - super happy :-)
+        handleRunner(() -> System.out.println("inside lambda call"));
+
+        // we're implementing method go() here
+
+        Runner myFirstLambda = () -> {
+        };//implementacja interfejsu Runner
+
+        //expression has value, statement not
+
+        Runner mySecondLambda = () -> {
+            System.out.println("Inside my second lambda");
+        };
+
+        Runner myThirdLambda = () -> System.out.println("my third Lambda");
+
+        Runner myFourthLambda = () -> {
+            System.out.println("first text");
+            System.out.println("second text");
+        };
+        myFourthLambda.go();
+        myFourthLambda.go(4);
+        Runner.walk();
+
     }
-    public static void handleRunner (Runner anyRunner){
+
+    public static void handleRunner(Runner anyRunner) {
         System.out.println("handleRunner");
         anyRunner.go();
     }
 }
+

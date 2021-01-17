@@ -4,14 +4,15 @@ public class CalcDemo {
 
     public static void main(String[] args) {
         System.out.println("playing with calc lambdas");
-        Adder adder = (int a, int b) -> {return a+b;
+        Adder<Integer> adder = (Integer a, Integer  b) -> {return a+b;
         };
-
-        Adder adder2 = (first, second ) -> {
+// typy sa wyciagane z interfejsu wiec nie potrzeba podawac ich typu,
+// jezeli to robimy to musza typy sie zgadzac bezwzglednie
+        Adder<Integer> adder2 = (first,  second ) -> {
             return first+second;
         };
 
-        Adder adder3 = (first, second ) ->first + second;
+        Adder <Integer> adder3 = (first, second ) ->first + second;
 
         MyAdder myAdder = (a,b,comment) -> {
             System.out.println(comment );
@@ -20,11 +21,13 @@ public class CalcDemo {
 
         myAdder.addWithComment(5,10, "should be 15");
 
-        Substraction sub = (a,b) -> a-b;
+        Substraction <Integer> sub = (a,b) -> a-b;
 
-        Multiplication multiplication = (a,b) -> a*b;
+        Multiplication <Double>  multiplication = (a,b) -> a*b;
 
-        Division division = (a,b) -> a/b;
+        Division <Double> division = (a,b) -> a/b;
+        Operation <Double> divisionOperation = (a,b) -> a/b;
+
 
         StrangeOne strangeOne = (int a, int b) -> {return a+b;
         };

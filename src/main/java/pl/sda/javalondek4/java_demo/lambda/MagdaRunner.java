@@ -9,4 +9,11 @@ public class MagdaRunner implements Runner {
     public void walk(){
         System.out.println("Walk Magda");
     }
+
+    @Override
+    public void go(int speed){
+        System.out.println("Magda's speed is "+ speed);
+
+
+    }
 }

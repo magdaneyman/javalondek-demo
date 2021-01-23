@@ -8,7 +8,7 @@ public class NickDealer {
             this.exceptionGenerator = exceptionGenerator;
         }
 
-        public String nickFromDealer() throws NoNickException {
+        public String nickFromDealer() throws NoNickChecekdException {
             return exceptionGenerator.nick();
         }
 

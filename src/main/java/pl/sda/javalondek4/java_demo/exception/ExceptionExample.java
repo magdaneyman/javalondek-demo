@@ -1,7 +1,7 @@
 package pl.sda.javalondek4.java_demo.exception;
 
 public class ExceptionExample {
-    // checked exceptions - all inherited from Exception but RuntimeException
+    // checked exceptions - all inherited from Exception except RuntimeException
     // unchecked exceptions - all inherited from RuntimeException
     // errors - inherited directly from Throwable
     public static void main(String[] args)
@@ -13,7 +13,7 @@ public class ExceptionExample {
         String myNick;
         try { // first step
             myNick = exceptionGenerator.nick();
-        } catch (NoNickException e) { // second - sometimes
+        } catch (NoNickChecekdException e) { // second - sometimes
             System.out.println("Problem with nick generator...");
             myNick = "this user has no nick";
         } finally { // third // always
@@ -23,7 +23,7 @@ public class ExceptionExample {
         System.out.println("Now with runtime exceptions...");
         try {
             myNick= exceptionGenerator.nickWithRuntimeException();
-        }catch (NoNickRuntimeException e){
+        }catch (NoNickRuntimeExc e){
             System.out.println("wyjatek z RuntimeException");
             myNick = "Przypisanie z runtimeExcepion";
         }
@@ -35,13 +35,13 @@ public class ExceptionExample {
         String myNickDealer;
         try {
             myNickDealer =  nickDealer.nickFromDealer();
-        } catch (NoNickException e) {
+        } catch (NoNickChecekdException e) {
             myNickDealer = "default nick name";
         }
         System.out.println("Nick from myDealer: " + myNickDealer);
         try {
             myNickDealer = nickDealer.nick();
-        } catch (NoNickRuntimeException exc) {
+        } catch (NoNickRuntimeExc exc) {
             myNickDealer = "unexpected value....";
         }
         System.out.println("Nick from dealer: " + myNickDealer);

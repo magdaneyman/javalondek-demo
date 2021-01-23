@@ -4,20 +4,20 @@ import java.util.Random;
 
 public class ExceptionGenerator {
 
-    public String nick() throws NoNickException{
+    public String nick() throws NoNickChecekdException {
         Random random = new Random();
         if ( random.nextInt(100)% 2 == 0){
             return "Magda";
         }else {
-            throw new NoNickException("I have no nick");
+            throw new NoNickChecekdException("I have no nick");
         }
     }
-    public String nickWitRuntimeException() throws NoNickRuntimeException{
+    public String nickWitRuntimeException() throws NoNickRuntimeExc {
         Random random = new Random();
         if ( random.nextInt(100)% 2 == 0){
             return "Magda";
         }else {
-            throw new NoNickRuntimeException("I have no nick");
+            throw new NoNickRuntimeExc("I have no nick");
         }
     }
 
@@ -25,7 +25,7 @@ public class ExceptionGenerator {
         String myNick;
         try { // first step
             myNick = nick();
-        } catch (NoNickException e) { // second - sometimes
+        } catch (NoNickChecekdException e) { // second - sometimes
             System.out.println("Problem with nick generator...");
             myNick = "this user has no nick";
         } finally { // third // always
@@ -34,15 +34,15 @@ public class ExceptionGenerator {
         return myNick;}
 
     /**
-     * @throws NoNickException
+     * @throws NoNickChecekdException
      * @return
      */
-    public String nickWithRuntimeException() throws NoNickRuntimeException {
+    public String nickWithRuntimeException() throws NoNickRuntimeExc {
         Random random = new Random();
         if (random.nextInt(100) % 2 == 0) {
             return "maniek";
         } else {
-            throw new NoNickRuntimeException("I have no nick... yet:P");
+            throw new NoNickRuntimeExc("I have no nick... yet:P");
         }
     }
 

@@ -12,3 +12,4 @@ git status
 git add
 git commit -m "[tag] - message"
 git restore --staged file-name
+git checkout -b branch name //stworz i przelacz na branch 

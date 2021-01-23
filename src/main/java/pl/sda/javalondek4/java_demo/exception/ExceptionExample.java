@@ -1,40 +1,52 @@
 package pl.sda.javalondek4.java_demo.exception;
 
 public class ExceptionExample {
-
-    // checked exception  - all inherited from Exception except RuntimeException
-    // unchecked exception - all inherited from RuntimeException
-    // errors - inherited directly from Throwable (java machine errors)
-    public static void main(String[] args) {
+    // checked exceptions - all inherited from Exception but RuntimeException
+    // unchecked exceptions - all inherited from RuntimeException
+    // errors - inherited directly from Throwable
+    public static void main(String[] args)
+    //    throws NoNickException // don't do it!!!
+    {
         ExceptionGenerator exceptionGenerator = new ExceptionGenerator();
-        // handle with try catch  or declare
-        // SOLID ??
+        // handle or declare
+        // SOLID??
         String myNick;
-        try {
+        try { // first step
             myNick = exceptionGenerator.nick();
-        } catch (NoNickException e) {
-            e.printStackTrace(); // niepoprawna obsluga, tylko wpisanie do logow
-            // nie jest dobra praktyka
-            System.out.println("Problem with nick generator");
-            myNick = "This user has no nick";
+        } catch (NoNickException e) { // second - sometimes
+            System.out.println("Problem with nick generator...");
+            myNick = "this user has no nick";
+        } finally { // third // always
+            // myNick = "from finally:)"; // it always overrides nick:(
         }
-        // blok finally  - zawsze nadpisze
-
-            System.out.println("My nick is " + myNick);
-
-        System.out.println( "Now with runtime exceptions.. ");
-        myNick = exceptionGenerator.nickWitRuntimeException();
-
-
-
-
-        //String nullString = null;
-            //nullString.concat("ma kota");
-            System.out.println("here ");
-
-
+        System.out.println("My nick is: " + myNick);
+        System.out.println("Now with runtime exceptions...");
+        try {
+            myNick= exceptionGenerator.nickWithRuntimeException();
+        }catch (NoNickRuntimeException e){
+            System.out.println("wyjatek z RuntimeException");
+            myNick = "Przypisanie z runtimeExcepion";
+        }
+        System.out.println("My nick now is: " + myNick);
+//        String nullString = null;
+//        nullString.concat(" ma kota");
+        System.out.println("With dealer:):):)");
+        NickDealer nickDealer = new NickDealer(new ExceptionGenerator());
+        String myNickDealer;
+        try {
+            myNickDealer =  nickDealer.nickFromDealer();
+        } catch (NoNickException e) {
+            myNickDealer = "default nick name";
+        }
+        System.out.println("Nick from myDealer: " + myNickDealer);
+        try {
+            myNickDealer = nickDealer.nick();
+        } catch (NoNickRuntimeException exc) {
+            myNickDealer = "unexpected value....";
+        }
+        System.out.println("Nick from dealer: " + myNickDealer);
+        System.out.println("here???");
     }
-
 }
 
 

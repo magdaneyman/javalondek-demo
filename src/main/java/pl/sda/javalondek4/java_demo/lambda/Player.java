@@ -2,6 +2,10 @@ package pl.sda.javalondek4.java_demo.lambda;
 
 public class Player implements Playable{
 
+    public static void main(String[] args) {
+
+    }
+
     @Override
     public void play() {
         System.out.println("Playing is fun");

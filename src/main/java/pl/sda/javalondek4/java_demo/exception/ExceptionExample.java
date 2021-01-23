@@ -21,10 +21,22 @@ public class ExceptionExample {
         // blok finally  - zawsze nadpisze
 
             System.out.println("My nick is " + myNick);
-            String nullString = null;
-            nullString.concat("ma kota");
+
+        System.out.println( "Now with runtime exceptions.. ");
+        myNick = exceptionGenerator.nickWitRuntimeException();
+
+
+
+
+        //String nullString = null;
+            //nullString.concat("ma kota");
             System.out.println("here ");
 
 
     }
+
 }
+
+
+
+
